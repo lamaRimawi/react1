@@ -1,0 +1,27 @@
+.navbar-nav li{
+    padding: 0 15px;
+}
+.nav-item.active a{
+    border-bottom: 2px solid tomato;
+    padding-bottom: 2px ;
+
+}
+.dot{
+    background: tomato;
+    border-radius: 50%;
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    min-width: 11px;
+    min-height: 10px;
+
+}
+.nav-right{
+    position: relative;
+}
+.logoo{
+    max-width: 4.5rem;
+}
+.navbar{
+    background: white;
+}
