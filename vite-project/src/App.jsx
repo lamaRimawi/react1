@@ -4,10 +4,10 @@ import './App.css'
 import Navbar from './component/Navbar/Navbar'
 import Footer from "./component/Footer/Footer.jsx";
 import {Route, Routes} from "react-router-dom";
-import LoginForm from "./pages/LoginForm/LoginForm.jsx";
 import Tasks from "./pages/Tasks/Tasks.jsx";
 import Home from "./pages/Home/Home.jsx";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import LoginRegisterForm from "./pages/LoginRegisterForm/LoginRegisterForm.jsx";
 
 function App() {
 
@@ -19,7 +19,7 @@ function App() {
             <Route path={'/'} element={<Home/>}>
 
             </Route>
-              <Route path={'/LoginForm'} element={<LoginForm />}></Route>
+              <Route path={'/LoginForm'} element={<LoginRegisterForm />}></Route>
                 <Route path={'/Tasks'} element={<Tasks />}></Route>
         </Routes>
       <Footer></Footer>

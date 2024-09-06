@@ -1,12 +1,13 @@
-.navbar-nav li{
+.navbar-nav .nav-item {
     padding: 0 15px;
 }
-.nav-item.active a{
-    border-bottom: 2px solid tomato;
-    padding-bottom: 2px ;
 
+.nav-item.active {
+    border-bottom: 2px solid tomato;
+    padding-bottom: 2px;
 }
-.dot{
+
+.dot {
     background: tomato;
     border-radius: 50%;
     position: absolute;
@@ -14,14 +15,19 @@
     right: -8px;
     min-width: 11px;
     min-height: 10px;
-
 }
-.nav-right{
+
+.nav-right {
     position: relative;
 }
-.logoo{
+
+.logoo {
     max-width: 4.5rem;
 }
-.navbar{
+
+.navbar {
     background: white;
+}
+.em{
+  max-width:40px ;
 }

@@ -1,4 +1,4 @@
-import basket_icon from './basket_icon.png'
+import basket_icon from './new-employee.png'
 import logo from './logo-search-grid-1x.png'
 import header_img from './header_img.png'
 import search_icon from './search_icon.png'
@@ -10,6 +10,7 @@ import menu_5 from './menu_5.png'
 import menu_6 from './menu_6.png'
 import menu_7 from './menu_7.png'
 import menu_8 from './menu_8.png'
+import {z} from 'zod';
 
 import food_1 from './food_1.png'
 import food_2 from './food_2.png'
@@ -116,235 +117,375 @@ export const menu_list = [
         menu_image: menu_8
     }]
 
-export const food_list = [
+export const employee_list = [
     {
         _id: "1",
-        name: "Greek salad",
-        image: food_1,
-        price: 12,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Salad"
+        name: "John Doe",
+        salary: 60000,
+        jobInfo: {
+            position: "Software Engineer",
+            department: "IT",
+            location: "New York",
+        },
+        description: "John is responsible for developing and maintaining software applications."
     },
     {
         _id: "2",
-        name: "Veg salad",
-        image: food_2,
-        price: 18,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Salad"
-    }, {
+        name: "Jane Smith",
+        salary: 75000,
+        jobInfo: {
+            position: "Project Manager",
+            department: "Operations",
+            location: "Chicago",
+        },
+        description: "Jane oversees project management and ensures that projects are completed on time."
+    },
+    {
         _id: "3",
-        name: "Clover Salad",
-        image: food_3,
-        price: 16,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Salad"
-    }, {
+        name: "Michael Brown",
+        salary: 50000,
+        jobInfo: {
+            position: "Sales Executive",
+            department: "Sales",
+            location: "San Francisco",
+        },
+        description: "Michael is responsible for client relations and increasing company sales."
+    },
+    {
         _id: "4",
-        name: "Chicken Salad",
-        image: food_4,
-        price: 24,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Salad"
-    }, {
+        name: "Emily Davis",
+        salary: 68000,
+        jobInfo: {
+            position: "Marketing Specialist",
+            department: "Marketing",
+            location: "Los Angeles",
+        },
+        description: "Emily creates and manages marketing campaigns to promote company products."
+    },
+    {
         _id: "5",
-        name: "Lasagna Rolls",
-        image: food_5,
-        price: 14,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Rolls"
-    }, {
+        name: "David Wilson",
+        salary: 80000,
+        jobInfo: {
+            position: "HR Manager",
+            department: "Human Resources",
+            location: "Seattle",
+        },
+        description: "David manages the HR department and oversees recruitment and employee relations."
+    },
+    {
         _id: "6",
-        name: "Peri Peri Rolls",
-        image: food_6,
-        price: 12,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Rolls"
-    }, {
+        name: "Sarah Johnson",
+        salary: 55000,
+        jobInfo: {
+            position: "Financial Analyst",
+            department: "Finance",
+            location: "Boston",
+        },
+        description: "Sarah analyzes financial data to help the company make informed business decisions."
+    },
+    {
         _id: "7",
-        name: "Chicken Rolls",
-        image: food_7,
-        price: 20,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Rolls"
-    }, {
+        name: "Chris Lee",
+        salary: 95000,
+        jobInfo: {
+            position: "Senior Developer",
+            department: "IT",
+            location: "San Diego",
+        },
+        description: "Chris is a senior developer specializing in backend systems and architecture."
+    },
+    {
         _id: "8",
-        name: "Veg Rolls",
-        image: food_8,
-        price: 15,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Rolls"
-    }, {
+        name: "Anna Martinez",
+        salary: 72000,
+        jobInfo: {
+            position: "Product Designer",
+            department: "Design",
+            location: "Miami",
+        },
+        description: "Anna designs user interfaces and experiences for the company's products."
+    },
+    {
         _id: "9",
-        name: "Ripple Ice Cream",
-        image: food_9,
-        price: 14,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Deserts"
-    }, {
+        name: "James Anderson",
+        salary: 87000,
+        jobInfo: {
+            position: "DevOps Engineer",
+            department: "IT",
+            location: "Denver",
+        },
+        description: "James manages the company's infrastructure and deployment pipelines."
+    },
+    {
         _id: "10",
-        name: "Fruit Ice Cream",
-        image: food_10,
-        price: 22,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Deserts"
-    }, {
+        name: "Maria Garcia",
+        salary: 56000,
+        jobInfo: {
+            position: "Content Writer",
+            department: "Marketing",
+            location: "New York",
+        },
+        description: "Maria writes and edits content for the company's website and marketing materials."
+    },
+    {
         _id: "11",
-        name: "Jar Ice Cream",
-        image: food_11,
-        price: 10,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Deserts"
-    }, {
+        name: "William Harris",
+        salary: 60000,
+        jobInfo: {
+            position: "Business Analyst",
+            department: "Business",
+            location: "Chicago",
+        },
+        description: "William analyzes business processes and provides insights for improvement."
+    },
+    {
         _id: "12",
-        name: "Vanilla Ice Cream",
-        image: food_12,
-        price: 12,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Deserts"
+        name: "Sophia Miller",
+        salary: 64000,
+        jobInfo: {
+            position: "UX Researcher",
+            department: "Design",
+            location: "San Francisco",
+        },
+        description: "Sophia conducts user research to improve the user experience of the company's products."
     },
     {
         _id: "13",
-        name: "Chicken Sandwich",
-        image: food_13,
-        price: 12,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Sandwich"
+        name: "Jacob Moore",
+        salary: 58000,
+        jobInfo: {
+            position: "Technical Support",
+            department: "Support",
+            location: "Dallas",
+        },
+        description: "Jacob provides technical support to clients and resolves product-related issues."
     },
     {
         _id: "14",
-        name: "Vegan Sandwich",
-        image: food_14,
-        price: 18,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Sandwich"
-    }, {
+        name: "Isabella Taylor",
+        salary: 82000,
+        jobInfo: {
+            position: "Lead Developer",
+            department: "IT",
+            location: "Boston",
+        },
+        description: "Isabella leads a team of developers working on new software projects."
+    },
+    {
         _id: "15",
-        name: "Grilled Sandwich",
-        image: food_15,
-        price: 16,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Sandwich"
-    }, {
+        name: "Ethan Jackson",
+        salary: 93000,
+        jobInfo: {
+            position: "Cloud Engineer",
+            department: "IT",
+            location: "Seattle",
+        },
+        description: "Ethan designs and manages cloud infrastructure for the company's services."
+    },
+    {
         _id: "16",
-        name: "Bread Sandwich",
-        image: food_16,
-        price: 24,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Sandwich"
-    }, {
+        name: "Ava White",
+        salary: 69000,
+        jobInfo: {
+            position: "Data Analyst",
+            department: "Data Science",
+            location: "Austin",
+        },
+        description: "Ava analyzes data to help the company make data-driven decisions."
+    },
+    {
         _id: "17",
-        name: "Cup Cake",
-        image: food_17,
-        price: 14,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Cake"
-    }, {
+        name: "Alexander Martinez",
+        salary: 72000,
+        jobInfo: {
+            position: "System Administrator",
+            department: "IT",
+            location: "Houston",
+        },
+        description: "Alexander manages the company's internal systems and servers."
+    },
+    {
         _id: "18",
-        name: "Vegan Cake",
-        image: food_18,
-        price: 12,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Cake"
-    }, {
+        name: "Mia Clark",
+        salary: 67000,
+        jobInfo: {
+            position: "SEO Specialist",
+            department: "Marketing",
+            location: "Phoenix",
+        },
+        description: "Mia optimizes the company's web presence to improve search engine rankings."
+    },
+    {
         _id: "19",
-        name: "Butterscotch Cake",
-        image: food_19,
-        price: 20,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Cake"
-    }, {
+        name: "Daniel Thompson",
+        salary: 62000,
+        jobInfo: {
+            position: "Network Engineer",
+            department: "IT",
+            location: "Philadelphia",
+        },
+        description: "Daniel maintains and troubleshoots the company's network infrastructure."
+    },
+    {
         _id: "20",
-        name: "Sliced Cake",
-        image: food_20,
-        price: 15,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Cake"
-    }, {
+        name: "Emma Robinson",
+        salary: 85000,
+        jobInfo: {
+            position: "Product Manager",
+            department: "Product",
+            location: "San Diego",
+        },
+        description: "Emma manages the product lifecycle from concept to launch."
+    },
+    {
         _id: "21",
-        name: "Garlic Mushroom ",
-        image: food_21,
-        price: 14,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Pure Veg"
-    }, {
+        name: "Oliver Perez",
+        salary: 77000,
+        jobInfo: {
+            position: "Scrum Master",
+            department: "Operations",
+            location: "San Francisco",
+        },
+        description: "Oliver facilitates Agile processes and ensures team collaboration."
+    },
+    {
         _id: "22",
-        name: "Fried Cauliflower",
-        image: food_22,
-        price: 22,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Pure Veg"
-    }, {
+        name: "Amelia Gonzalez",
+        salary: 58000,
+        jobInfo: {
+            position: "Customer Success Manager",
+            department: "Customer Service",
+            location: "Las Vegas",
+        },
+        description: "Amelia helps clients get the most out of the company's products."
+    },
+    {
         _id: "23",
-        name: "Mix Veg Pulao",
-        image: food_23,
-        price: 10,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Pure Veg"
-    }, {
+        name: "Noah Walker",
+        salary: 69000,
+        jobInfo: {
+            position: "Security Analyst",
+            department: "IT",
+            location: "Atlanta",
+        },
+        description: "Noah monitors and ensures the security of the company's information systems."
+    },
+    {
         _id: "24",
-        name: "Rice Zucchini",
-        image: food_24,
-        price: 12,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Pure Veg"
+        name: "Liam Lewis",
+        salary: 88000,
+        jobInfo: {
+            position: "Lead Architect",
+            department: "IT",
+            location: "Portland",
+        },
+        description: "Liam designs software architecture and leads development projects."
     },
     {
         _id: "25",
-        name: "Cheese Pasta",
-        image: food_25,
-        price: 12,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Pasta"
+        name: "Sophia Hall",
+        salary: 71000,
+        jobInfo: {
+            position: "UI Designer",
+            department: "Design",
+            location: "Miami",
+        },
+        description: "Sophia creates visual designs for the user interfaces of the company's applications."
     },
     {
         _id: "26",
-        name: "Tomato Pasta",
-        image: food_26,
-        price: 18,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Pasta"
-    }, {
+        name: "Lucas Allen",
+        salary: 75000,
+        jobInfo: {
+            position: "IT Support Manager",
+            department: "Support",
+            location: "San Antonio",
+        },
+        description: "Lucas manages the IT support team and handles escalated technical issues."
+    },
+    {
         _id: "27",
-        name: "Creamy Pasta",
-        image: food_27,
-        price: 16,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Pasta"
-    }, {
+        name: "Charlotte Young",
+        salary: 79000,
+        jobInfo: {
+            position: "Quality Assurance Lead",
+            department: "Quality Assurance",
+            location: "Orlando",
+        },
+        description: "Charlotte leads the QA team and ensures the quality of software products."
+    },
+    {
         _id: "28",
-        name: "Chicken Pasta",
-        image: food_28,
-        price: 24,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Pasta"
-    }, {
+        name: "Henry King",
+        salary: 83000,
+        jobInfo: {
+            position: "Full Stack Developer",
+            department: "IT",
+            location: "Denver",
+        },
+        description: "Henry works on both frontend and backend development of web applications."
+    },
+    {
         _id: "29",
-        name: "Buttter Noodles",
-        image: food_29,
-        price: 14,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Noodles"
-    }, {
+        name: "Grace Wright",
+        salary: 76000,
+        jobInfo: {
+            position: "Operations Manager",
+            department: "Operations",
+            location: "Detroit",
+        },
+        description: "Grace oversees daily operations and ensures smooth functioning of the company."
+    },
+    {
         _id: "30",
-        name: "Veg Noodles",
-        image: food_30,
-        price: 12,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Noodles"
-    }, {
+        name: "Jack Lopez",
+        salary: 94000,
+        jobInfo: {
+            position: "Machine Learning Engineer",
+            department: "Data Science",
+            location: "Raleigh",
+        },
+        description: "Jack develops machine learning models and algorithms for data-driven solutions."
+    },
+    {
         _id: "31",
-        name: "Somen Noodles",
-        image: food_31,
-        price: 20,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Noodles"
-    }, {
+        name: "Chloe Hill",
+        salary: 67000,
+        jobInfo: {
+            position: "Recruiter",
+            department: "Human Resources",
+            location: "Salt Lake City",
+        },
+        description: "Chloe recruits new talent and manages the hiring process for the company."
+    },
+    {
         _id: "32",
-        name: "Cooked Noodles",
-        image: food_32,
-        price: 15,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Noodles"
+        name: "Olivia Turner",
+        salary: 90000,
+        jobInfo: {
+            position: "Lead Data Scientist",
+            department: "Data Science",
+            location: "Austin",
+        },
+        description: "Olivia leads the data science team, focusing on data analysis and predictive modeling."
     }
-]
+];
+
+
+export const loginSchema = z.object({
+  email: z.string().min(1, { message: 'Email is required' })
+    .email({ message: 'Please enter a valid email address' }),
+  password: z.string().min(1, { message: 'Password is required' })
+    .regex(/^(?=.*[A-Z])(?=.*\d).{6,}$/, { message: 'Password must be at least 6 characters long, contain at least one uppercase letter, and one number.' })
+});
+
+export const registerSchema = z.object({
+  username: z.string().min(1, { message: 'Username is required' })
+    .regex(/^[a-zA-Z][a-zA-Z0-9_-]{2,15}[a-zA-Z0-9]$/, { message: 'Please enter a valid username.' }),
+  email: z.string().min(1, { message: 'Email is required' })
+    .email({ message: 'Please enter a valid email address' }),
+  password: z.string().min(1, { message: 'Password is required' })
+    .regex(/^(?=.*[A-Z])(?=.*\d).{6,}$/, { message: 'Password must be at least 6 characters long, contain at least one uppercase letter, and one number.' })
+});
+

@@ -1,57 +1,50 @@
-import React, {createContext, useEffect, useState} from 'react'
-import {food_list} from "../assets/assets.js";
-import PropTypes from "prop-types";
+import React, { createContext, useState } from 'react';
+import PropTypes from 'prop-types';
 
+export const StoreContext = createContext(null);
 
-export const StoreContext=createContext(null)
 function StoreContextProvider(props) {
-  const [cartItems, setCartItems] = useState({});
-  const addCartItem = (itemId) => {
-    if (!cartItems[itemId]) {
-      setCartItems((prevState) => ({...prevState,[itemId]:1}));
-    }else
-    {
-      setCartItems((prevState)=> ({...prevState,[itemId]:prevState[itemId]+1}));
+  const [registeredUsers, setRegisteredUsers] = useState([]);
+  const [currentUser, setCurrentUser] = useState(null);
+
+  const registerUser = (user) => {
+    setRegisteredUsers((prevUsers) => [...prevUsers, user]);
+  };
+
+
+  const loginUser = (email, password) => {
+    const user = registeredUsers.find(
+      (user) => user.email === email && user.password === password
+    );
+    if (user) {
+      setCurrentUser(user);
+      return true;
     }
+    return false;
+  };
 
-  }
-  const removeCartItem = (itemId) => {
-      setCartItems((prevState)=> ({...prevState,[itemId]:prevState[itemId]-1}));
 
-  }
-  const  getTotalCartAmount = ()=>{
-      let amount=0;
-      for( const item in cartItems){
-          if(cartItems[item] >0){
-              let itemInfo=food_list.find((p)=> p._id === item);
-              amount += itemInfo.price* cartItems[item];
-          }
-      }
-      return amount;
-  }
- useEffect(()=>{
+  const logoutUser = () => {
+    setCurrentUser(null);
+  };
 
-        console.log(cartItems)
-
-     },[cartItems]
- )
-
-  const contextValue={
-    food_list,
-    cartItems,
-    addCartItem,
-    removeCartItem,
-    setCartItems,
-      getTotalCartAmount
-  }
+  const contextValue = {
+    registeredUsers,
+    currentUser,
+    registerUser,
+    loginUser,
+    logoutUser,
+  };
 
   return (
     <StoreContext.Provider value={contextValue}>
-      {
-        props.children
-      }
+      {props.children}
     </StoreContext.Provider>
-  )
+  );
 }
 
-export default StoreContextProvider
+StoreContextProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+export default StoreContextProvider;
