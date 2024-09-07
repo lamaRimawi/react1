@@ -1,26 +1,29 @@
-import React from 'react'
-import {Button, Card, Alert, Form, CardHeader} from "react-bootstrap";
+import React from 'react';
+import { Button, Card, Alert, Form, CardHeader } from 'react-bootstrap';
+import FormInput from '../FormInput/FormInput.jsx';
 
-import FormInput from "../FormInput/FormInput.jsx";
-
-
-const RegisterForm = ({ onSubmit, errors, registerProps }) => (
+const RegisterForm = ({ onSubmit, errors, registerProps, successMessage, errorMessage }) => (
   <Card className="shadow card">
-   <CardHeader>
-      <h3 className="card-title text-center mb-4">Sign up</h3>
-      {/*{generalError && (*/}
-      {/*  <Alert variant="danger" dismissible>*/}
-      {/*    {generalError.message}*/}
-      {/*  </Alert>*/}
-      {/*)}*/}
-       </CardHeader>
-       <Card.Body>
+    <CardHeader className="text-primary">
+      <h2 className="card-title text-center mb-4 fw-bold ">Sign up</h2>
+      {errorMessage && (
+        <Alert variant="danger" dismissible>
+          {errorMessage}
+        </Alert>
+      )}
+      {successMessage && (
+        <Alert variant="success" dismissible>
+          {successMessage}
+        </Alert>
+      )}
+    </CardHeader>
+    <Card.Body>
       <Form onSubmit={onSubmit} noValidate>
-           <FormInput
+        <FormInput
           id="regUsername"
-          label="username"
+          label="Username"
           type="text"
-          placeholder="user name"
+          placeholder="User name"
           error={errors.username}
           registerProps={registerProps('username')}
         />
