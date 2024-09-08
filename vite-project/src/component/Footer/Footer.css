@@ -1,0 +1,30 @@
+ul{
+    list-style: none;
+}
+.footer_content{
+    padding-top: 25px;
+}
+ul li{
+    cursor: pointer;
+}
+h2 {
+    font-size: 30px;
+    font-weight: bold;
+}
+.l{
+    cursor: pointer;
+    width: 100px;
+}
+.footer{
+    color: white;
+}
+.links img{
+  width: 40px;
+    cursor: pointer;
+}
+.f{
+    margin: 40px 0 0 0 ;
+   padding: 20px 0 20px 0 ;
+    background: #1e1f1e;
+}
+

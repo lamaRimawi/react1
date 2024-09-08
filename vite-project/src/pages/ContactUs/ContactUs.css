@@ -1,0 +1,80 @@
+.cc{
+    background: url('../../assets/istockphoto-1462942852-612x612.jpg') no-repeat center center;
+    background-size: cover;
+}
+.cont {
+
+    background-size: cover;
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    color: #ffffff;
+}
+
+.cont::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 15px;
+}
+
+.cont > div {
+    position: relative;
+    z-index: 1;
+}
+
+.brd {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 2rem;
+}
+
+.brd h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.brd p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.q {
+    padding-bottom: 1rem;
+    color: white;
+}
+
+.q a {
+    color: #ffffff;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+li a:hover {
+    color: #ffc107;
+}
+
+li a svg {
+    margin-left: 10px;
+    color: #ffc107;
+}
+
+.card {
+    border-radius: 15px;
+}
+
+.text-light {
+    color: #ffffff !important;
+}

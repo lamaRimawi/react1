@@ -1,0 +1,17 @@
+.mm{
+    max-width: 100%;
+    max-height: 10rem;
+
+}
+.sad{
+    max-width: 2rem;
+}
+.cb{
+    transition: 0.4s ease-in-out;
+}
+.cb:hover{
+    transform: scale(1.03);
+    border: 1px solid tomato;
+   box-shadow: 2px 2px 5px #2034;
+
+}
