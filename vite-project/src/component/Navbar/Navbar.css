@@ -2,6 +2,7 @@
     padding: 0 15px;
 }
 
+
 .nav-item.active {
     border-bottom: 2px solid tomato;
     padding-bottom: 2px;
@@ -30,4 +31,17 @@
 }
 .em{
   max-width:40px ;
+}
+
+
+.navbar {
+  margin-bottom: 40px;
+  z-index: 1030;
+}
+
+body {
+  padding-top: 100px;
+}
+.Nav.Link{
+    margin-bottom: 15px;
 }

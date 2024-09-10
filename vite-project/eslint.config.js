@@ -1,8 +1,9 @@
-import js from '@eslint/js'
-import globals from 'globals'
-import react from 'eslint-plugin-react'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
+// eslint.config.js
+import js from '@eslint/js';
+import globals from 'globals';
+import react from 'eslint-plugin-react';
+import reactHooks from 'eslint-plugin-react-hooks';
+import reactRefresh from 'eslint-plugin-react-refresh';
 
 export default [
   { ignores: ['dist'] },
@@ -35,4 +36,14 @@ export default [
       ],
     },
   },
-]
+  {
+    // Override for CommonJS files like jest.config.cjs
+    files: ['jest.config.cjs', '**/*.cjs'],
+    languageOptions: {
+      globals: { ...globals.node }, // Include Node.js globals
+    },
+    rules: {
+      'no-undef': 'off', // Disable no-undef for CommonJS files
+    },
+  },
+];

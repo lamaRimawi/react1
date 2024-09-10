@@ -14,7 +14,6 @@ function LoginRegisterForm() {
   const { loginUser, registerUser } = useContext(StoreContext);
   const [regSuccess, setRegSuccess] = useState('');
   const [loginSuccess, setLoginSuccess] = useState('');
-
   const [regErrorMsg, setRegErrorMsg] = useState('');
 
   const {
@@ -23,7 +22,7 @@ function LoginRegisterForm() {
     formState: { errors: loginError },
     setError: setLoginError,
     clearErrors: clearErrorsLogin,
-      reset:resetLoginLogin,
+    reset: resetLoginLogin,
   } = useForm({
     resolver: zodResolver(loginSchema),
     mode: 'onBlur',
@@ -45,14 +44,11 @@ function LoginRegisterForm() {
     setRegErrorMsg('');
     setRegSuccess('');
 
-    const newUser = {
-      username: data.username,
-      email: data.email,
-      password: data.password,
-    };
-
     try {
-      const isRegistered = await registerUser(newUser);
+      const isRegistered = await registerUser({
+        email: data.email,
+        password: data.password,
+      });
 
       if (isRegistered) {
         setRegSuccess('Registration successful!');
@@ -65,23 +61,29 @@ function LoginRegisterForm() {
     }
   };
 
-  const handleLoginSubmit = (data) => {
+  const handleLoginSubmit = async (data) => {
     clearErrorsLogin();
     setLoginSuccess('');
 
+    try {
+      const isSuccess = await loginUser(data.email, data.password);
+      if (isSuccess) {
+        setLoginSuccess('Login successful!');
+        resetLoginLogin();
 
-    const isSuccess = loginUser(data.email, data.password);
-    if (isSuccess) {
-      setLoginSuccess('Login successful!');
-      resetLoginLogin();
-
-      setTimeout(() => {
-        navigate('/');
-      }, 1500);
-    } else {
+        setTimeout(() => {
+          navigate('/');
+        }, 1500);
+      } else {
+        setLoginError('general', {
+          type: 'manual',
+          message: 'Invalid email or password',
+        });
+      }
+    } catch (error) {
       setLoginError('general', {
         type: 'manual',
-        message: 'Invalid email or password',
+        message: 'An error occurred. Please try again.',
       });
     }
   };
@@ -91,7 +93,7 @@ function LoginRegisterForm() {
       <Row>
         <Col md={6}>
           <LoginForm
-              success={loginSuccess}
+            success={loginSuccess}
             onSubmit={handleLogin(handleLoginSubmit)}
             registerProps={loginRegister}
             errors={loginError}

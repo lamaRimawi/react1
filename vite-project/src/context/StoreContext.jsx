@@ -1,41 +1,80 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { employee_list as initialEmployeeList } from "../assets/assets.js";
+import {auth} from "../firebase.js";
+import {createUserWithEmailAndPassword,signInWithEmailAndPassword
+,onAuthStateChanged,signOut} from 'firebase/auth'
 
 export const StoreContext = createContext(null);
 
 function StoreContextProvider(props) {
-  const [registeredUsers, setRegisteredUsers] = useState([]);
-  const [currentUser, setCurrentUser] = useState(null);
-  const [employee_list, setEmployeeList] = useState(initialEmployeeList);
 
-  const registerUser = (user) => {
-    const userExists = registeredUsers.some((u) => u.email === user.email);
-    if (userExists) {
+  const [currentUser, setCurrentUser] = useState(null);
+  const [employee_list, setEmployeeList] = useState([]);
+
+  useEffect(()=>{
+const unsubscribe=onAuthStateChanged(auth, (user)=>{
+
+  setCurrentUser(user)
+})
+    return ()=>unsubscribe();
+  } ,[])
+
+
+  const registerUser = async ({email,password}) => {
+   try {
+   await createUserWithEmailAndPassword(auth,email,password);
+
+     return true;
+   }catch (error){
+     console.error('error registering user:',error);
+     return false;
+   }
+  };
+
+  const loginUser =async (email, password) => {
+    try {
+      await signInWithEmailAndPassword(auth,email,password);
+      return true;
+    }catch (error){
+      console.error('error logging in ',error);
       return false;
     }
-    setRegisteredUsers((prevUsers) => [...prevUsers, user]);
-    return true;
   };
 
-  const loginUser = (email, password) => {
-    const user = registeredUsers.find(
-      (user) => user.email === email && user.password === password
-    );
-    if (user) {
-      setCurrentUser(user);
-      return true;
+  const logoutUser = async () => {
+    try {
+      await signOut(auth);
+      setCurrentUser(null);
+
     }
-    return false;
+    catch (error){
+      console.error('error logging out: ',error);
+    }
   };
 
-  const logoutUser = () => {
-    setCurrentUser(null);
-  };
+  useEffect(() => {
+    const fetchEmployeeList = async () => {
+      try {
+        const response = await fetch('https://66c450e2b026f3cc6ceed002.mockapi.io/api/v1/Employee_list');
+        if (!response.ok) {
+          throw new Error('Failed to fetch data');
+        }
+        const data = await response.json();
+        if (Array.isArray(data)) {
+          setEmployeeList(data);
+        } else {
+          console.error('Fetched data is not an array:', data);
+        }
+      } catch (error) {
+        console.error('Error fetching employee list:', error);
+      }
+    };
 
+    fetchEmployeeList();
+  }, []);
 
   const contextValue = {
-    registeredUsers,
+
     currentUser,
     registerUser,
     loginUser,

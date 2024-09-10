@@ -87,7 +87,7 @@ function Tasks() {
     const newEmp = {
       ...data,
       _id: employee_list.length ? employee_list.length + 1 : 1,
-      jobInfo: { position: data.position },
+      position:  data.position
     };
 
     setEmployeeList([...employee_list, newEmp]);
@@ -104,7 +104,7 @@ function Tasks() {
       const updateEmployee = {
         ...selectedEmployee,
         ...data,
-        jobInfo: { position: data.position }
+        position:  data.position
       }
       const updateList = [...employee_list];
       updateList[index] = updateEmployee;
@@ -117,7 +117,7 @@ function Tasks() {
 
   return (
     <>
-      <Container className="mt-5 shadow">
+      <Container className="mt-5 shadow task" >
         <Card>
           <CardHeader>
             <h1>
@@ -145,7 +145,7 @@ function Tasks() {
                   </Card.Body>
                   <ListGroup className="list-group-flush">
                     <ListGroup.Item>Salary: <span className={'text-danger fw-bold'}>$ {item.salary}</span></ListGroup.Item>
-                    <ListGroup.Item>Position: {item.jobInfo.position}</ListGroup.Item>
+                    <ListGroup.Item>Position: {item.position}</ListGroup.Item>
                   </ListGroup>
                   <Card.Body>
                     <CardLink onClick={() => handleShowEdit(item)} className="edit" style={{ cursor: 'pointer' }}>

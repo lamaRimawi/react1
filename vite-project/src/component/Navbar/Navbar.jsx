@@ -9,7 +9,7 @@ function NavigationBar() {
     const [menu, setMenu] = useState("");
   const navigate = useNavigate();
     return (
-        <Navbar className="navbar shadow" expand="lg" >
+        <Navbar className="navbar shadow fixed-top" expand="lg" >
             <Container fluid>
                 <Navbar.Brand as={NavLink} to="/">
                     <Image src={assets.logo} alt="logo" className="logoo" />
@@ -20,7 +20,7 @@ function NavigationBar() {
                         <Nav.Link
                             as={NavLink}
                             to="/"
-                            className={menu === "Home" ? 'nav-item active' : 'nav-item'}
+                            className={ menu === "Home" ? 'nav-item active' : 'nav-item'}
                             onClick={() => setMenu("Home")}
                         >
                             Home
